@@ -1,28 +1,39 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Avatar, Button, Card } from 'react-native-paper';
 
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>DOIT</Text>
       <Text style={styles.welcome}>Welcome username!</Text>
-      <TouchableOpacity style={styles.sosButton}>
-        <Text style={styles.sosText}>SOS</Text>
-      </TouchableOpacity>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Daily Schedule</Text>
+        <TouchableOpacity>
+          <Card style={styles.card}>
+            <Card.Content style={styles.cardContent}>
+              <Text style={styles.buttonText}>Daily Schedule</Text>
+            </Card.Content>
+          </Card>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SearchNurse')}>
-          <Text style={styles.buttonText}>Search Nurse</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SearchNurse')}>
+          <Card style={styles.card}>
+            <Card.Content style={styles.cardContent}>
+              <Text style={styles.buttonText}>Search Nurse</Text>
+            </Card.Content>
+          </Card>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Document Archive</Text>
+        <TouchableOpacity>
+          <Card style={styles.card}>
+            <Card.Content style={styles.cardContent}>
+              <Text style={styles.buttonText}>Document Archive</Text>
+            </Card.Content>
+          </Card>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.disabledButton}>
-          <Text style={styles.buttonText}>Future enhancements</Text>
+      </View>
+      <View>
+        <TouchableOpacity style={styles.sosButton}>
+          <Text style={styles.sosText}>SOS</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -46,11 +57,12 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 18,
     marginBottom: 20,
+    marginTop: 20,
   },
   sosButton: {
     backgroundColor: 'red',
     padding: 20,
-    marginBottom: 20,
+    marginVertical: 30,
     borderRadius: 5,
   },
   sosText: {
@@ -60,6 +72,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     marginBottom: 20,
+    justifyContent: 'space-evenly'
   },
   button: {
     backgroundColor: '#ccc',
@@ -80,5 +93,16 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'black',
     fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center'
   },
+  card: {
+    margin: 20
+  },
+  cardContent: {
+    height: 150,
+    width: 150,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 });
