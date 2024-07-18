@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
+import { Avatar } from 'react-native-paper';
 
 export default function Intro({navigation}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to DOIT</Text>
-      <Text style={styles.subtitle}>Description ......</Text>
+      <Avatar.Image size={150} source={require('../assets/logo.png')} />
+      <Text style={styles.title}>DOIT</Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
           <Text style={styles.buttonText}>Login</Text>
@@ -13,9 +14,20 @@ export default function Intro({navigation}) {
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register')}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SearchNurse')}>
+        {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SearchNurse')}>
           <Text style={styles.buttonText}>SearchNurse</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+      </View>
+      <View style={styles.description}>
+        <Text style={styles.subtitle}>Our mission is to provide a user-friendly, intuitive platform that streamlines care, fosters connection & promotes independence.{'\n'}</Text>
+        <Text style={[styles.subtitle, styles.fontWeight700]}>With DOIT, users can:</Text>
+        <Text style={styles.subtitle}>- Track schedules and receive reminders.</Text>
+        <Text style={styles.subtitle}>- Monitor daily activities and appointments</Text>
+        <Text style={styles.subtitle}>- Connect with healthcare professionals and support networks</Text>
+        <Text style={styles.subtitle}>- Maintain doctor prescriptions.</Text>
+        <Text style={styles.subtitle}>- Emergency SOS{'\n'}</Text>
+        <Text style={[styles.subtitle, styles.fontWeight700]}>Join Our Community</Text>
+        <Text style={styles.subtitle}>DoIt is more than just an application - it's a community dedicated to supporting individuals affected by dementia. Sign up today and discover a comprehensive care solution that puts your needs first.</Text>
       </View>
     </View>
   );
@@ -27,16 +39,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
+    padding: 20
   },
   title: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
+  },
+  description: {
+    marginTop: 30
   },
   subtitle: {
     fontSize: 18,
     color: '#666',
-    marginBottom: 40,
+  },
+  fontWeight700: {
+    fontWeight: 700
   },
   buttonContainer: {
     flexDirection: 'row',
