@@ -4,8 +4,7 @@ import { Text, TextInput } from 'react-native-paper';
 
 export default function Login({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', margin: 20 }}>
-      <Text variant="displayMedium">Do It</Text>
+    <View style={{ flex: 1, alignItems: 'center', margin: 20 }}>
       <TextInput
         mode="outlined"
         label="Username"

@@ -13,7 +13,7 @@ function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Intro" options={{ title: 'DOIT', headerBackTitle: 'Back' }} >
+        <Stack.Screen name="Intro" options={{ headerShown: false }} >
           {(props) => <Intro {...props} />}
         </Stack.Screen>
         <Stack.Screen name="Login" options={{ title: 'Login', headerBackTitle: 'Back' }} >
