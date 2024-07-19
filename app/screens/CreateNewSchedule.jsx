@@ -5,7 +5,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { TextInput, Button, IconButton, MD3Colors } from 'react-native-paper';
 export default function CreateNewSchedule({ navigation }) {
 
-    const [inputDate, setInputDate] = React.useState(undefined);
+    const [startDate, setStartDate] = React.useState(undefined);
+    const [endDate, setEndDate] = React.useState(undefined);
     const [visible, setVisible] = React.useState(false);
     const [time, setTime] = React.useState('');
     const [showComment, setShowComment] = React.useState(false);
@@ -31,8 +32,8 @@ export default function CreateNewSchedule({ navigation }) {
                     <DatePickerInput
                         locale="en"
                         label="Start date"
-                        value={inputDate}
-                        onChange={(d) => setInputDate(d)}
+                        value={startDate}
+                        onChange={(d) => setStartDate(d)}
                         inputMode="end"
                     />
                 </View>
@@ -41,8 +42,8 @@ export default function CreateNewSchedule({ navigation }) {
                     <DatePickerInput
                         locale="en"
                         label="End date"
-                        value={inputDate}
-                        onChange={(d) => setInputDate(d)}
+                        value={endDate}
+                        onChange={(d) => setEndDate(d)}
                         inputMode="end"
                     />
                 </View>
@@ -70,7 +71,7 @@ export default function CreateNewSchedule({ navigation }) {
                 </Button>
             </View>
 
-            <View style={{ alignSelf: 'flex-end', position: 'absolute', bottom: 40, flexDirection: 'row' }}>
+            <View style={{ alignSelf: 'flex-end', position: 'absolute', bottom: 40, flexDirection: 'row', right: 15 }}>
                 <Button style={{ width: '80%' }} mode="elevated" onPress={() =>  navigation.navigate('DailySchedule')}>
                     Save
                 </Button>

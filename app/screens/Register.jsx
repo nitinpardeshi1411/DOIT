@@ -3,20 +3,17 @@ import { StyleSheet, Text, View, TouchableOpacity, Alert, ScrollView } from 'rea
 import { TextInput } from 'react-native-paper';
 import THEME from '../theme/theme';
 
-export default function Register() {
+export default function Register({navigation}) {
   const [fullName, setFullName] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [address, setAddress] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [mobNo, setMobNo] = useState('');
 
   const handleRegister = () => {
-    if (password !== confirmPassword) {
-      Alert.alert('Error', 'Passwords do not match');
-      return;
-    }
-    Alert.alert('Success', 'Registration successful');
+    navigation.navigate('Home');
   };
 
   return (
@@ -48,6 +45,15 @@ export default function Register() {
         onChangeText={setAddress}
         multiline
         numberOfLines={4}
+        style={styles.input}
+      />
+      <TextInput
+        mode="outlined"
+        label="DOIT Username"
+        placeholder="DOIT Username"
+        value={username}
+        onChangeText={setUsername}
+        secureTextEntry
         style={styles.input}
       />
       <TextInput

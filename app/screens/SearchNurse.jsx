@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
-import { Icon, TextInput, MD3Colors } from 'react-native-paper';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { Icon, TextInput } from 'react-native-paper';
 
 export default function SearchNurse() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,7 +46,7 @@ export default function SearchNurse() {
             </TouchableOpacity>
             <TouchableOpacity 
               style={styles.tableRowButton} 
-            //   onPress={() => alert(`Chat with ${nurse.name}`)}
+              onPress={() => nurse.chat ? Alert.alert('You will be navigated to a external chat app') : ''}
             >
               <Text style={styles.tableRowButtonText}>
                 {

@@ -9,17 +9,17 @@ const regexPattern = new RegExp(pattern, flags);
 
 export default function Login({ navigation }) {
   const [emailVal, setEmailval] = useState('rohit@gmail.com');
-  const [passwordVal, setPasswordVal] = useState('test@123');
+  const [passwordVal, setPasswordVal] = useState('');
  
   const validateLoginDetails = () => {
     let validEmail = regexPattern.test(emailVal) ? true : false;
    
+    navigation.navigate('Home');
     if (validEmail && passwordVal) {
-      navigation.navigate('Home');
       return;
     }
  
-    Alert.alert('Invalid Credentials');
+    // Alert.alert('Invalid Credentials');
   };
 
   return (
@@ -46,7 +46,7 @@ export default function Login({ navigation }) {
         onChangeText={(val)=> {
           setPasswordVal(val);
         }}
-        right={<TextInput.Icon icon="eye" />}
+        // right={<TextInput.Icon icon="eye" />}
       />
       <TouchableOpacity style={styles.button} onPress={validateLoginDetails}>
         <Text style={styles.buttonText}>Login</Text>

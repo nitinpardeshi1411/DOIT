@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Modal } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Modal, Linking, Alert } from 'react-native';
 import { Avatar, Button, Card } from 'react-native-paper';
 import THEME from '../theme/theme';
 import Pdf from 'react-native-pdf';
@@ -39,7 +39,7 @@ export default function Home({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={{alignSelf:'flex-end', position:'absolute', bottom: 40, right: 15}}>
-        <TouchableOpacity style={styles.sosButton}>
+        <TouchableOpacity onPress={() => Alert.alert("Dialing Number, Please wait...")} style={styles.sosButton}>
           <Text style={styles.sosText}>SOS</Text>
         </TouchableOpacity>
       </View>
