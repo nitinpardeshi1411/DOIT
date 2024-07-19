@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Modal } from 'react-native';
 import { Avatar, Button, Card } from 'react-native-paper';
+import THEME from '../theme/theme';
 import Pdf from 'react-native-pdf';
 const source = require('../assets/About_Dementia.pdf');
 
@@ -10,7 +11,7 @@ export default function Home({ navigation }) {
   return (
     <>
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome username!</Text>
+      <Text style={styles.welcome}>Welcome Rohit!</Text>
       <View style={styles.row}>
         <TouchableOpacity onPress={()=>navigation.navigate('DailySchedule')}>
           <Card style={styles.card}>
@@ -32,32 +33,36 @@ export default function Home({ navigation }) {
           <Card style={styles.card}>
             <Card.Content style={styles.cardContent}>
               <Text style={styles.buttonText}>Document Archive</Text>
+              <Text style={styles.futureText}>(future)</Text>
             </Card.Content>
           </Card>
         </TouchableOpacity>
       </View>
-      <View>
+      <View style={{alignSelf:'flex-end', position:'absolute', bottom: 40, right: 15}}>
         <TouchableOpacity style={styles.sosButton}>
           <Text style={styles.sosText}>SOS</Text>
         </TouchableOpacity>
       </View>
       <View>
         <TouchableOpacity onPress={() => setShowPdf(true)}>
-          <Text style={styles.about}>About Dementia</Text>
+          <Text style={styles.aboutDementia}>About Dementia</Text>
         </TouchableOpacity>
       </View>
     </View>
     {
       showPdf &&
-      <Pdf
-        source={source}
-        // scale={1.2}
-        style={{
-          // flex:1,
-          width: Dimensions.get('window').width,
-          height: Dimensions.get('window').height
-        }}
-      />
+        <View>
+          <TouchableOpacity onPress={() => setShowPdf(false)}>
+            <Text style={{alignSelf: 'flex-end', fontSize: 18}}>Close</Text>
+          </TouchableOpacity>
+          <Pdf
+            source={source}
+            style={{
+              width: Dimensions.get('window').width,
+              height: Dimensions.get('window').height
+            }}
+          />
+        </View>
     }
     </>
   );
@@ -81,16 +86,21 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
     marginTop: 20,
+    color: THEME.secondaryColor
   },
   sosButton: {
     backgroundColor: 'red',
     padding: 20,
-    marginVertical: 30,
-    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 80,
+    height: 80,
+    borderRadius: 80/2
   },
   sosText: {
     color: 'white',
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: 'bold'
   },
   row: {
     flexDirection: 'row',
@@ -114,18 +124,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center'
   },
+  futureText: {
+    color: 'white',
+    fontStyle: 'italic'
+  },
   card: {
-    margin: 20
+    margin: 20,
+    backgroundColor: THEME.primaryColor
   },
   cardContent: {
     height: 150,
     width: 150,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  aboutDementia: {
+    fontSize: 18,
+    color: THEME.secondaryColor
   }
 });

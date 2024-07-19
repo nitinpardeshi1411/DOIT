@@ -77,16 +77,16 @@ export default function CreateNewSchedule({ navigation }) {
             </View>
         </SafeAreaProvider>
 
-    );
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'top',
-        backgroundColor: '#fff',
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'top',
+    backgroundColor: '#fff',
 
-    },
+  },
 
 });

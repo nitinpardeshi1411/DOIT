@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { Avatar } from 'react-native-paper';
+// import { getNurses } from '../api/api';
+import getNurses from '../api/api';
 import THEME from '../theme/theme';
 
 export default function Intro({navigation}) {
+
+  // useEffect(() => {
+  //   getNurses();
+  // }, [])
+
   return (
     <View style={styles.container}>
       <Avatar.Image size={150} source={require('../assets/logo.png')} />
@@ -43,6 +50,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
+    marginTop: 10,
   },
   description: {
     marginTop: 30
@@ -56,6 +64,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
+    marginTop: 10
   },
   button: {
     backgroundColor: THEME.primaryColor,
