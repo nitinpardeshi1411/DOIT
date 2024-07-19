@@ -6,6 +6,8 @@ import Home from '../screens/Home';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
 import SearchNurse from '../screens/SearchNurse';
+import DailySchedule from '../screens/DailySchedule';
+import CreateNewSchedule from '../screens/CreateNewSchedule';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +29,12 @@ function Navigation() {
         </Stack.Screen>
         <Stack.Screen name="SearchNurse" options={{ title: 'Search Nurse', headerBackTitle: 'Back' }} >
           {(props) => <SearchNurse {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="DailySchedule" options={{ title: 'Daily Schedule', headerBackTitle: 'Back' }} >
+          {(props) => <DailySchedule {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="CreateNewSchedule" options={{ title: 'Create/Edit Schedule', headerBackTitle: 'Back' }} >
+          {(props) => <CreateNewSchedule {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

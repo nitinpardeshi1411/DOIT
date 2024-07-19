@@ -12,7 +12,7 @@ export default function Home({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.welcome}>Welcome username!</Text>
       <View style={styles.row}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('DailySchedule')}>
           <Card style={styles.card}>
             <Card.Content style={styles.cardContent}>
               <Text style={styles.buttonText}>Daily Schedule</Text>
