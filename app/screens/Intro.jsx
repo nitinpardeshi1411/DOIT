@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { Avatar } from 'react-native-paper';
+import THEME from '../theme/theme';
 
 export default function Intro({navigation}) {
   return (
@@ -8,15 +9,12 @@ export default function Intro({navigation}) {
       <Avatar.Image size={150} source={require('../assets/logo.png')} />
       <Text style={styles.title}>DOIT</Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+        <TouchableOpacity style={[styles.button, styles.login]} onPress={() => navigation.navigate('Login')}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register')}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SearchNurse')}>
-          <Text style={styles.buttonText}>SearchNurse</Text>
-        </TouchableOpacity> */}
       </View>
       <View style={styles.description}>
         <Text style={styles.subtitle}>Our mission is to provide a user-friendly, intuitive platform that streamlines care, fosters connection & promotes independence.{'\n'}</Text>
@@ -60,13 +58,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   button: {
-    backgroundColor: '#007BFF',
+    backgroundColor: THEME.primaryColor,
     paddingVertical: 15,
     paddingHorizontal: 30,
     marginHorizontal: 10,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#0056b3',
+    borderColor: THEME.primaryColor,
+    width: 130
   },
   buttonText: {
     color: '#fff',
@@ -74,4 +73,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  login: {
+    backgroundColor: THEME.secondaryColor,
+    borderColor: THEME.secondaryColor
+  }
 });
