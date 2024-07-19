@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { TextInput } from 'react-native-paper';
+import THEME from '../theme/theme';
 
 export default function Register() {
   const [fullName, setFullName] = useState('');
@@ -7,6 +9,7 @@ export default function Register() {
   const [address, setAddress] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [mobNo, setMobNo] = useState('');
 
   const handleRegister = () => {
     if (password !== confirmPassword) {
@@ -18,41 +21,61 @@ export default function Register() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Register</Text>
+      {/* <Text style={styles.title}>Register</Text> */}
       <TextInput
-        style={styles.input}
+        mode="outlined"
+        label="Full Name"
         placeholder="Full Name"
         value={fullName}
         onChangeText={setFullName}
+        style={styles.input}
       />
       <TextInput
-        style={styles.input}
+        mode="outlined"
+        label="Mobile Number"
         placeholder="Mobile Number"
         value={mobileNumber}
         onChangeText={setMobileNumber}
         keyboardType="phone-pad"
+        style={styles.input}
       />
       <TextInput
-        style={[styles.input, styles.textarea]}
+        // style={[styles.input, styles.textarea]}
+        mode="outlined"
+        label="Address"
         placeholder="Address"
         value={address}
         onChangeText={setAddress}
         multiline
         numberOfLines={4}
+        style={styles.input}
       />
       <TextInput
-        style={styles.input}
+        mode="outlined"
+        label="Password"
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
+        style={styles.input}
       />
       <TextInput
-        style={styles.input}
+        mode="outlined"
+        label="Confirm Password"
         placeholder="Confirm Password"
         value={confirmPassword}
         onChangeText={setConfirmPassword}
         secureTextEntry
+        style={styles.input}
+      />
+      <TextInput
+        mode="outlined"
+        label="Emergency Contact Number"
+        placeholder="Emergency Contact Number"
+        value={mobNo}
+        onChangeText={setMobNo}
+        secureTextEntry
+        style={styles.input}
       />
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Register</Text>
@@ -76,18 +99,14 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    padding: 15,
-    marginVertical: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
+    marginVertical: 15
   },
   textarea: {
     height: 100,
     textAlignVertical: 'top', // Aligns text to the top for multiline TextInput
   },
   button: {
-    backgroundColor: '#007BFF',
+    backgroundColor: THEME.primaryColor,
     padding: 15,
     marginTop: 20,
     borderRadius: 5,
