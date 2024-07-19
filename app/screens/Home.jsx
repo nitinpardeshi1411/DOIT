@@ -1,9 +1,14 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 import { Avatar, Button, Card } from 'react-native-paper';
+import Pdf from 'react-native-pdf';
+const source = require('../assets/About_Dementia.pdf');
 
 export default function Home({ navigation }) {
+  const [showPdf, setShowPdf] = React.useState(false);
+
   return (
+    <>
     <View style={styles.container}>
       <Text style={styles.welcome}>Welcome username!</Text>
       <View style={styles.row}>
@@ -36,7 +41,25 @@ export default function Home({ navigation }) {
           <Text style={styles.sosText}>SOS</Text>
         </TouchableOpacity>
       </View>
+      <View>
+        <TouchableOpacity onPress={() => setShowPdf(true)}>
+          <Text style={styles.about}>About Dementia</Text>
+        </TouchableOpacity>
+      </View>
     </View>
+    {
+      showPdf &&
+      <Pdf
+        source={source}
+        // scale={1.2}
+        style={{
+          // flex:1,
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height
+        }}
+      />
+    }
+    </>
   );
 }
 
